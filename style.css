@@ -11,7 +11,6 @@
   border: none;
   outline: none;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -20,7 +19,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 0 10px;
+  padding: 0 1rem;
   background: #221f2f;
   overflow: hidden;
 }
@@ -86,10 +85,6 @@ body::after {
   transition: all 0.3s ease;
 }
 
-.container form input:hover, .container .convert-box .select-input:hover {
-  border: 1px solid var(--primary-color);
-}
-
 .container form input:focus {
   padding: 0 14px;
   border: 1px solid var(--primary-color);
@@ -146,10 +141,6 @@ body::after {
   transition: all 0.3s ease;
 }
 
-.container .convert-box .reverse:hover {
-  color: var(--primary-color);
-}
-
 .container form .result {
   font-size: 1.1rem;
   margin: 20px 0 30px;
@@ -168,4 +159,10 @@ body::after {
 
 .container form button:hover {
   background: var(--primary-color);
+}
+
+.container form input:hover,
+.container .convert-box .select-input:hover,
+.container .convert-box .reverse:hover {
+  border: 1px solid var(--primary-color);
 }

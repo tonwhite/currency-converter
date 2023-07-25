@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Currency converter web application">
     <meta name="keywords" content="Currency, Converter, Web Application">
-    <meta name="author" content="Ton White">
+    <meta name="author" content="Your Name">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Currency Converter</title>
 </head>
-<body>
-    <section class="container">
-        <h2>Currency Converter</h2>
-        <form>
-            <div class="amount">
-                <label for="amount">Amount</label>
-                <input type="text" id="amount" value="1">
-            </div>
-            <div class="convert-box">
-                <div class="from">
-                    <p>From</p>
-                    <div class="select-input">
-                        <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-                        <select></select>
-                    </div>
-                </div>
-                <div class="reverse"><i class="fas fa-exchange-alt"></i></div>
-                <div class="to">
-                    <p>To</p>
-                    <div class="select-input">
-                        <img src="https://flagcdn.com/48x36/gb.png" alt="flag">
-                        <select></select>
-                    </div>
-                </div>
-                <div class="result">Getting exchange rate...</div>
-                <button>Get Exchange Rate</button>
-    
-            </div>
-        </form>
-    </section>
 
+<body>
+    <main>
+        <section class="container">
+            <h1>Currency Converter</h1>
+            <form id="converterForm" action="#">
+                <div class="amount">
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount" value="1">
+                </div>
+                <div class="convert-box">
+                    <div class="from">
+                        <p>From</p>
+                        <div class="select-input">
+                            <img id="fromFlag" src="https://flagcdn.com/48x36/ua.png" alt="flag">
+                            <select aria-label="From currency" id="fromCur"></select>
+                        </div>
+                    </div>
+                    <div class="reverse"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="to">
+                        <p>To</p>
+                        <div class="select-input">
+                            <img id="toFlag" src="https://flagcdn.com/48x36/us.png" alt="flag">
+                            <select aria-label="To currency" id="toCur"></select>
+                        </div>
+                    </div>
+                    <div class="result">Getting exchange rate...</div>
+                    <button>Get Exchange Rate</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <script src="./countries.js"></script>
     <script src="./index.js"></script>
 </body>
+
 </html>
