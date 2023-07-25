@@ -1,4 +1,4 @@
-const API_KEY = "09536f52a5e5ea14d81524f6";
+const RANDOM_STRING = "09536f52a5e5ea14d81524f6";
 
 const fromCur = document.querySelector(".from select");
 const toCur = document.querySelector(".to select");
@@ -27,7 +27,7 @@ async function getExchangeRate() {
     const amountVal = amount.value || 1;
     exRateTxt.innerText = "Getting exchange rate...";
     try {
-        const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${fromCur.value}`);
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${RANDOM_STRING}/latest/${fromCur.value}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const result = await response.json();
         const exchangeRate = result.conversion_rates[toCur.value];
