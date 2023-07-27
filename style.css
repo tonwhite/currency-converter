@@ -162,7 +162,7 @@ body::after {
 }
 
 .container form input:hover,
-.container .convert-box .select-input:hover,
-.container .convert-box .reverse:hover {
+.container .convert-box .select-input:hover {
+/* .container .convert-box .reverse:hover */
   border: 1px solid var(--primary-color);
 }

@@ -30,13 +30,18 @@ async function getExchangeRate(fromCurrency, toCurrency) {
 }
 
 function updateConversion() {
+    const fromCurVal = dom.fromCur.value;
+    const toCurVal = dom.toCur.value;
     const amountVal = dom.amount.value || 1;
+
+    if (!fromCurVal || !toCurVal || !amountVal) return;
+
     dom.exRateTxt.innerText = "Getting exchange rate...";
 
-    getExchangeRate(dom.fromCur.value, dom.toCur.value)
+    getExchangeRate(fromCurVal, toCurVal)
         .then(exchangeRate => {
             const totalExRate = (amountVal * exchangeRate).toFixed(2);
-            dom.exRateTxt.innerText = `${amountVal} ${dom.fromCur.value} = ${totalExRate} ${dom.toCur.value}`;
+            dom.exRateTxt.innerText = `${amountVal} ${fromCurVal} = ${totalExRate} ${toCurVal}`;
         })
         .catch(error => {
             dom.exRateTxt.innerText = "Something went wrong...";
@@ -54,19 +59,23 @@ function swapCurrencies() {
     [dom.fromCur.value, dom.toCur.value] = [dom.toCur.value, dom.fromCur.value];
     [dom.fromFlag.src, dom.toFlag.src] = [dom.toFlag.src, dom.fromFlag.src];
     [dom.fromFlag.alt, dom.toFlag.alt] = [dom.toFlag.alt, dom.fromFlag.alt];
-
     updateConversion();
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-    populateCurrencies();
-    updateConversion();
+window.addEventListener('DOMContentLoaded', () => {
+  populateCurrencies();
 });
 
-dom.getBtn.addEventListener("click", event => {
-    event.preventDefault();
+dom.getBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Check if both currency fields and the amount field are filled
+  if (dom.fromCur.value && dom.toCur.value && dom.amount.value) {
     updateConversion();
+  } else {
+    dom.exRateTxt.innerText = 'Please fill out all fields.';
+  }
 });
 
-dom.exIcon.addEventListener("click", swapCurrencies);
-[dom.fromCur, dom.toCur, dom.amount].forEach(el => el.addEventListener("change", updateConversion));
+dom.exIcon.addEventListener('click', swapCurrencies);
+
